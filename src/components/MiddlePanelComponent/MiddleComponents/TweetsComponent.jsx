@@ -11,13 +11,16 @@ class TweestsComponent extends Component {
       <Fragment>
         <div className={streamTweets}>
           <div className='streaming' id='tweet'>
-            {Object.keys(tweets).map(id => (
-              <StreamComponent
-                key={id}
-                text={tweets[id].tweet}
-                click={() => this.props.clicks(id)}
-              />
-            ))}
+            {tweets !== null
+              ? Object.keys(tweets).map(id => (
+                <StreamComponent
+                  key={id}
+                  text={tweets[id].tweet}
+                  click={() => this.props.clicks(id)}
+                  />
+                ))
+              : undefined}
+
           </div>
         </div>
       </Fragment>
