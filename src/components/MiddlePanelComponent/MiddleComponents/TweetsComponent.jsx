@@ -11,7 +11,7 @@ class TweestsComponent extends Component {
       <Fragment>
         <div className={streamTweets}>
           <div className='streaming' id='tweet'>
-            {tweets !== null
+            {tweets !== null || undefined
               ? Object.keys(tweets).map(id => (
                 <StreamComponent
                   key={id}
