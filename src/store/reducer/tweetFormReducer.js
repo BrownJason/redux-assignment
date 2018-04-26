@@ -65,7 +65,8 @@ const tweetFormReducer = (state = initialState, action) => {
               maxLength: 255
             }
           }
-        }
+        },
+        tweetFormValid: false
       }
     default:
       return state
@@ -77,6 +78,10 @@ const checkValidity = (value, rules) => {
 
   if (!rules) {
     return true
+  }
+
+  if (rules.required) {
+    isValid = value.trim() !== '' && isValid
   }
 
   if (rules.minLength) {
